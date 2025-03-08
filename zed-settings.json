@@ -1,0 +1,59 @@
+{
+    "inline_completions": {
+        "disabled_globs": [".env"]
+    },
+    "vim_mode": false,
+    "theme": "Ayu Dark",
+    "buffer_font_size": 16,
+    "ui_font_size": 16,
+    "buffer_font_family": "Fira Code",
+    "autosave": "on_window_change",
+    "inlay_hints": {
+        "enabled": true,
+        "show_type_hints": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true
+    },
+    "git": {
+        "inline_blame": {
+            "enabled": false
+        }
+    },
+    "git_status": true,
+    "lsp": {
+        "rust-analyzer": {
+            "initialization_options": {
+                "checkOnSave": {
+                    "command": "clippy"
+                },
+                "inlayHints": {
+                    "lifetimeElisionHints": {
+                        "useParameterNames": true,
+                        "enable": "skip_trivial"
+                    },
+                    "closureReturnTypeHints": {
+                        "enable": "never"
+                    }
+                }
+            }
+        }
+    },
+    "tab_size": 4,
+    "languages": {
+        "Python": {
+            "formatter": {
+                "external": {
+                    "command": "ruff format",
+                    "arguments": ["--respect-gitignore"]
+                }
+            },
+            "format_on_save": "on"
+        },
+        "C++": {
+            "format_on_save": "on"
+        },
+        "YAML": {
+            "tab_size": 2
+        }
+    }
+}
