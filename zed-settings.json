@@ -41,13 +41,16 @@
     "tab_size": 4,
     "languages": {
         "Python": {
-            "formatter": {
-                "external": {
-                    "command": "ruff format",
-                    "arguments": ["--respect-gitignore"]
+            "language_servers": ["pyright", "ruff"],
+            "format_on_save": "on",
+            "formatter": [
+                {
+                    "code_actions": {
+                        "source.fixAll.ruff": true,
+                        "source.organizeImports.ruff": true
+                    }
                 }
-            },
-            "format_on_save": "on"
+            ]
         },
         "C++": {
             "format_on_save": "on"

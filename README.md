@@ -35,7 +35,7 @@ brew install warp
 
 Open warp.
 
-If you agree with configs below, run `./auto-install.sh` directly.
+If you agree with configs below, run `python ./auto-install.py` directly.
 
 # Compilers and interpreters
 
@@ -46,7 +46,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 New a shell session:
 ```sh
 # nightly rust
-rustup toolchain install +nightly
+rustup toolchain install nightly
 # cargo tools
 brew install cargo-binstall
 cargo binstall cargo-cache cargo-watch
@@ -60,7 +60,7 @@ brew install zig
 ## Python
 `uv` does things on python like cargo on rust:
 ```sh
-brew install uv
+brew install uv ruff
 ```
 
 ## js/ts
@@ -83,7 +83,7 @@ brew install typora
 
 # Virtualization tools
 
-podman, kubectl, minikube:
+podman, kubectl, minikube, qemu:
 ```sh
 brew install podman kubectl minikube qemu
 ```
@@ -118,7 +118,7 @@ zellij setup --generate-completion fish >> ~/.config/fish/completions/zellij.fis
 ```
 
 Add this to `~/.config/fish/config.fish`:
-```fish
+```sh
 # lsd
 alias ls='lsd'
 alias ll='ls -l'
@@ -134,6 +134,11 @@ zoxide init fish | source
 ```
 
 # other
+
+OBS:
+```sh
+brew install obs
+```
 
 Install `ipreview` in app store.
 
@@ -161,7 +166,12 @@ ssh-keygen
 
 ## editor configure
 
-zed (see `zed-settings.json`)
+zed:
+```sh
+cp zed-settings.json ~/.config/zed/settings.json
+```
+Install following extensions in zed (ctrl+shift+p):
+`toml` `Dockerfile` `Make` `Zig` `Ruff` `Git Firefly`
 
 vim (~/.vimrc)
 ```ini
@@ -170,6 +180,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 ```
+
+**Below will not be done in `auto-install.py`:**
 
 ## git
 
@@ -222,4 +234,3 @@ Clean homebrew cache
 brew update && brew upgrade && brew cleanup
 brew autoremove
 ```
-
