@@ -194,7 +194,7 @@ git config --global user.email "..."
 Create gpg key following [github doc](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
 ```sh
-gpg --full-generate-key
+gpg --full-generate-key # I recommend to not set a password, or you may need install pinentry-mac to input password
 gpg --list-secret-keys --keyid-format=long
 # ...
 # sec   ed25519/XXX...XXX 2025-03-08 [SC]
