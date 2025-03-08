@@ -35,8 +35,6 @@ brew install warp
 
 Open warp.
 
-If you agree with configs below, run `python ./auto-install.py` directly.
-
 # Compilers and interpreters
 
 ## Rust
@@ -180,8 +178,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 ```
-
-**Below will not be done in `auto-install.py`:**
 
 ## git
 
