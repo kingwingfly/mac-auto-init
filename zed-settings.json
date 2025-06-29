@@ -1,13 +1,42 @@
 {
-    "inline_completions": {
-        "disabled_globs": [".env"]
+    "edit_predictions": {
+        "mode": "subtle",
+        "disabled_globs": [
+            "**/.env*",
+            "**/*.pem",
+            "**/*.key",
+            "**/*.cert",
+            "**/*.crt"
+        ]
+    },
+    "features": {
+        "edit_prediction_provider": "none"
+    },
+    "agent": {
+        "default_profile": "ask",
+        "default_model": {
+            "provider": "openai",
+            "model": "gpt-4o"
+        },
+        "version": "2",
+        "dock": "right"
+    },
+    "language_models": {
+        "openai": {
+            "api_url": "https://api.openai-hk.com/v1",
+            "version": "1"
+        }
     },
     "vim_mode": false,
     "theme": "Ayu Dark",
-    "buffer_font_size": 16,
-    "ui_font_size": 16,
+    "buffer_font_size": 20,
+    "ui_font_size": 20,
     "buffer_font_family": "Fira Code",
+    "buffer_font_features": {
+        "liga": true
+    },
     "autosave": "on_window_change",
+    // "autosave": { "after_delay": { "milliseconds": 1000 } },
     "inlay_hints": {
         "enabled": true,
         "show_type_hints": true,
@@ -21,9 +50,31 @@
     },
     "git_status": true,
     "lsp": {
+        "pyright": {
+            "settings": {
+                "python.analysis": {
+                    "diagnosticMode": "workspace",
+                    "typeCheckingMode": "strict"
+                },
+                "python": {
+                    "pythonPath": ".venv/bin/python"
+                }
+            }
+        },
+        "ruff": {
+            "initialization_options": {
+                "settings": {
+                    "lineLength": 80,
+                    "lint": {
+                        "extendSelect": ["I"]
+                    }
+                }
+            }
+        },
         "rust-analyzer": {
             "initialization_options": {
-                "checkOnSave": {
+                "checkOnSave": true,
+                "check": {
                     "command": "clippy"
                 },
                 "inlayHints": {
@@ -45,9 +96,14 @@
             "format_on_save": "on",
             "formatter": [
                 {
+                    "language_server": {
+                        "name": "ruff"
+                    }
+                },
+                {
                     "code_actions": {
-                        "source.fixAll.ruff": true,
-                        "source.organizeImports.ruff": true
+                        "source.organizeImports.ruff": true,
+                        "source.fixAll.ruff": true
                     }
                 }
             ]
