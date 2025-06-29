@@ -149,7 +149,7 @@ After install all things, here are more configuration to do.
 These apps need login:
 - onedrive
 - neteasemusic
-- zed (and GitHub copylot in it)
+- zed (and GitHub copilot in it)
 
 ## application to activate
 
